@@ -1,0 +1,30 @@
+# git ls-files --others --exclude-from=.git/info/exclude
+# Lines that start with '#' are comments.
+# For a project mostly in C, the following would be a good set of
+# exclude patterns (uncomment them if you want to use them):
+# *.[oa]
+# *~
+# 忽略*.o和*.a文件
+# *.[oa]
+# 忽略*.b和*.B文件，my.b除外
+#*.[bB]
+#!my.b
+# 忽略dbg文件和dbg目录
+#dbg
+# 只忽略dbg目录，不忽略dbg文件
+#dbg/
+# 只忽略dbg文件，不忽略dbg目录
+#dbg
+#!dbg/
+# 只忽略当前目录下的dbg文件和目录，子目录的dbg不在忽略范围内
+#/dbg
+
+# 我的忽略名单
+.settings
+.buildpath
+.project
+/caches/caches_*
+/caches/caches_*/
+/caches/*log.php
+/html/
+php_errors.log

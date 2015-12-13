@@ -1,0 +1,52 @@
+{template "content","header_page"}
+<div id="container" class="clearfix">
+	<div class="slidebar">
+		<div class="slidebar_top"></div>
+		<div class="slidebar_content">
+			<div style="font-size: 32px;color:green;TEXT-ALIGN:center;">{$currentCategory}</div>
+			<ul id="left_nav">
+				{loop $cateData $r}
+					{if $r['catname']!="首页"}
+						<li{if $catid==$r['catid'] } class="slt_menu" {/if}>
+							<a href="{$r['url']}" title="{$r['catname']}">{$r['catname']}</a>
+						</li>
+					{/if}
+				{/loop}
+			</ul>
+			
+			{php $hotCatId=29;}
+			<h1>{$CATEGORYS[$hotCatId][catname]}</h1>
+			<div class="hos_list">
+				<ul>
+					{pc:content action="lists" catid="$hotCatId" num="20" order="id ASC" page="$page"}
+					{loop $data $r}
+						<li><a href="{$r[url]}" title="{$r[title]}"><span class="arrow">&gt;</span>{$r[title]}</a></li>
+					{/loop}
+				</ul>
+			</div>
+		</div>
+		<div class="slidebar_footer"></div>
+	</div>
+	<div class="content_wrapper w785">
+		<div class="breadcrumb">
+			<span class="first"></span><span class="nav">当前位置：<a
+				href="http://www.huludental.com">虎鹿口腔诊所</a></span><span class="arrow">&gt;</span>
+				{loop $cateData $r}
+					{if $catid==$r['catid']}
+						<a href="{$r['url']}">{$r['catname']}</a>
+					{/if}
+				{/loop}
+		</div>
+		<div class="content clearfix">
+			<div class="wrapper">
+				<h1 style="text-indent: 2em;">
+					<span style="font-size:32px;">{$title}</span>
+				</h1>
+        	    {$content}
+			</div>
+		</div>
+		<div class="content_footer"></div>
+	</div>
+</div>
+
+{template "content","footer"}

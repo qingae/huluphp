@@ -1,0 +1,82 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset={CHARSET}" />
+<meta http-equiv="X-UA-Compatible" content="IE=7" />
+<title>{if isset($SEO['title']) && !empty($SEO['title'])}{$SEO['title']}{/if}{$SEO['site_title']}</title>
+<meta name="keywords" content="{$SEO['keyword']}">
+	<meta name="description" content="{$SEO['description']}">
+		<link href="{CSS_PATH}MY_dental.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="{JS_PATH}jquery.min.js"></script>
+		<script type="text/javascript" src="{JS_PATH}jquery.sgallery.js"></script>
+		<script type="text/javascript" src="{JS_PATH}search_common.js"></script>
+		<script type="text/javascript" src="{JS_PATH}MY_dental.js"></script>
+</head>
+<body>
+	<div id="header">
+		<div class="logo">
+			<a href="{siteurl($siteid)}/"><img
+				src="{IMG_PATH}dental/logo.jpg" /></a>
+		</div>
+		<div class="phone STYLE2">
+			<strong>咨询预约电话：0579-86150479</strong>
+		</div>
+		<div id="navigation">
+			{pc:content action="category" catid="0" num="25" siteid="$siteid"
+			order="listorder ASC"} {php $cateData = $data; $currentCategory='';}
+			{loop $data $r}
+			<dl {if $r['catname']== "首页"} class="h"{/if}>
+				<dt {if $catid==$r[ 'catid'] } class="slt_menu"{/if}>
+					{php if($catid==$r['catid']) {$currentCategory=$r['catname'];} } <a
+						rel="nofollow" {if $r['catname']== "首页"}href="{siteurl($siteid)}"
+						{else}href="{$r['url']}" {/if}
+								title="{$r['catname']}">{$r['catname']}</a>
+				</dt>
+			</dl>
+			{/loop} {/pc}
+		</div>
+	</div>
+	
+        <link rel="stylesheet" href="{CSS_PATH}juicyslider.css" type="text/css" />
+        <script src="{JS_PATH}jquery.min.js"></script>
+        <script src="{JS_PATH}jquery-ui.min.js"></script>
+        <script src="{JS_PATH}juicyslider.js"></script>
+		<div id="i_banner">
+			<div class="i_banner_rotator">
+				<div id="myslider" class="juicyslider">
+					<ul>
+						<li><img src="{IMG_PATH}dental/1.jpg" alt=""></li>
+						<li><img src="{IMG_PATH}dental/2.jpg" alt=""></li>
+						<li><img src="{IMG_PATH}dental/3.jpg" alt=""></li>
+						<li><img src="{IMG_PATH}dental/4.jpg" alt="bbbbb"></li>
+					</ul>
+					<div class="nav next"></div>
+					<div class="nav prev"></div>
+					<div class="mask"></div>
+				</div>
+			</div>
+		</div>
+		
+<script type="text/javascript">
+    // start to run when document ready
+	/*
+     $(function() {
+		$('#myslider').juicyslider({
+            width: '100%',
+            height: 400,
+            mask : 'none',
+            autoplay: false,
+            shuffle: true,
+			});
+		});
+	*/
+    	$('#myslider').juicyslider({
+					width: 962,
+                    height: 332,
+                    mask: '../../cms/mystatics/img/strip',
+                    autoplay: 6000,
+                    show: {effect: 'drop', duration: 3000},
+                    hide: {effect: 'drop', duration: 5000},
+                });
+   
+</script>

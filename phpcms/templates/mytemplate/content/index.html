@@ -1,0 +1,105 @@
+{template "content","header"}
+
+<div id="i_container" class="clearfix">
+	<div class="main clearfix">
+		<div class="news_l">
+		{php $catid1=22;}
+			<div class="title">
+				<img src="{IMG_PATH}dental/title_bg.gif" />
+				<h2>{$CATEGORYS[$catid1][catname]}</h2>
+				<a href="{$CATEGORYS[$catid1][url]}" target="_blank">更多>></a>
+			</div>
+			<div class="content">
+				<ul>
+				{pc:content action="lists" catid="$catid1" num="25" order="id ASC" page="$page"}
+				{loop $data $r}
+					{if $n==1}
+					<li class="special">
+						<img src="{IMG_PATH}dental/1.gif" />
+						<a href="{$r[url]}" title="{$r[title]}...">
+							<span class="arrow">&gt;</span>{$r[title]}...
+						</a>
+						<p>{$r[description]}</p>
+					</li>
+					{else}
+					<li>
+						<a href="{$r[url]}" title="{$r[title]}">
+							<span class="arrow">&gt;</span>{$r[title]}
+						</a>
+						<div class="time">[ {date('Y-m-d',$r[updatetime])} ]</div>
+					</li>
+					{/if}
+				{/loop}
+				{/pc}
+				</ul>
+			</div>
+		</div>
+		
+		{php $catid2=23;}
+		<div class="info bg">
+			<div class="title">{$CATEGORYS[$catid2][catname]}</div>
+			<div class="content"> 
+				<p><img src="{UPLOAD_URL}2015/0510/20150510064215792.jpg" />
+					<strong>牙齿矫正一年后，朋友都说我美了</strong>
+					<br/>
+					&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;如果说出生到现在我做的最正确的事，可能就要算做牙齿矫正了，以前的我是一个龅牙妹，美女一词永远和我没关系。
+					<!-- &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1年前我的牙齿还是龅牙，一点不整齐，这是刚矫正的时候，还能看出来，牙齿一颗颗东倒西歪！1年后，终于不用戴矫正器了，我的牙齿变的整齐漂亮，虽然十个月的时间感觉挺长的，但一切都过去了，所以努力都是值得的。一下子不带矫正器了，我还觉得空荡荡的！最后给大家看看现在的我，这一口漂亮整齐的牙齿是不是很羡慕呢！</br>  -->
+					<strong>术后感言</strong>：现在的我有自信，勇敢，身边的朋友都说我改变很多，而且牙齿矫正后，连脸型都变漂亮了，特别是笑的时候美呆了！现在的我爱自拍，特别喜欢露出标准的8颗牙齿，美美哒~~
+					<strong>温馨提示</strong>：牙齿问题不可怕，只要检查清楚，正确矫正，坚持住，一定可以改变的，当然，选择正规的牙科医院和专家也很关键哦~~ <br/>
+				     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+				     <a href="{$CATEGORYS[$catid2][url]}" target="_blank">更多病例>></a>
+				     <br/>
+				</p>
+			</div>
+		</div>
+	</div>
+	{php $catid4=27;}
+	<div class="news_list clearfix">
+		<div class="left">
+			<div class="title"><h2>{$CATEGORYS[$catid4][catname]}</h2></div>
+			<div class="content">
+				<ul>
+					{pc:content action="lists" catid="$catid4" num="10" order="id ASC" page="$page"}
+					{loop $data $r}
+						<li>
+							<a href="{$r[url]}" title="{$r[title]}">
+								<span class="arrow">&gt;</span>{$r[title]}
+							</a>
+						</li>
+						{/loop}
+					{/pc}	
+				</ul>
+			</div>
+		</div>
+		
+		{php $catid3=21;}
+		<div class="center">
+			<div class="title"><h2>{$CATEGORYS[$catid3][catname]}</h2></div>
+			<div class="content">
+				<ul>
+					{pc:content action="lists" catid="$catid3" num="10" order="id ASC" page="$page"}
+					{loop $data $r}
+						<li>
+							<a href="{$r[url]}" title="{$r[title]}">
+								<span class="arrow">&gt;</span>{$r[title]}
+							</a>
+						</li>
+						{/loop}
+					{/pc}		
+				</ul>
+			</div>
+			
+		</div>
+		
+		<div class="right">
+			<div class="title">微信关注</div>
+			<div class="content">
+				<p>
+					<img src="{IMG_PATH}dental/erweima.jpg" style="width: 180px;"/>
+				</p>
+			</div>
+		</div>
+	</div>
+</div>
+
+{template "content","footer"}
